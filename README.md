@@ -1,5 +1,7 @@
 # CryptoTray
 
+![alt tag](http://i.imgur.com/DsI8xSi.gif)
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/benmcnelly/CryptoTray?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
