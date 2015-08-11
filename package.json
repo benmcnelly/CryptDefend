@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "hash-files" : "1.0",
-    "async" : "1.4.2"
+    "async" : "1.4.2",
+    "checksum" : "0.1.1"
   },
   "maintainers":[ {
    "name" : "Ben McNelly",

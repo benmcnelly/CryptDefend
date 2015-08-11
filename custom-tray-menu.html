@@ -4,12 +4,41 @@
     var win = gui.Window.get();
 
     // Good as place as any to write app logic...
-    var os = require('os')
     // import packages
+    var os = require('os')
     var fs = require('fs') // built in node.js file system junk
+    var path = require('path') // do I need this
     var crypto = require('crypto');  // may use fs + this, vs hash-files
-    var async=require('async'); // async library for talking back to SD server
-    var async=require('hash-files'); // simple file hash lib with no C+ needed
+    var async = require('async'); // async library for talking back to SD server
+    var async = require('hash-files'); // simple file hash lib with no C+ needed
+    var checksum = require('checksum') //may use this instead
+
+    // Custom Variables
+    var hostname = os.hostname();
+    //
+    //
+    // // Every ten minutes run this code..
+    // // ~ Check for file exists, read file size, check for variation
+    //
+    // // ~ Do hashes on File
+    //
+    // // ~ hash file, check for match
+    // if (hashed_file == stored_hash){
+    //     var hash_fail = "false"
+    // } else {
+    //     var hash_fail = "true"
+    // }
+    //
+    // // ~ if either check fails match, check for help-decrypt, fire allert level 1
+    // if (hash_fail == "true") {
+    //     // Allert server
+    // } else {
+    //     // Log OK Status
+    // }
+    //
+    // // ~ if decrypt exits, enable kill switch in admin GUI, verify allert level 2
+    //
+
 
 
   </script>
@@ -101,11 +130,18 @@
   <body>
     <section>
       <h4 onclick="gui.App.closeAllWindows();">Stronghold Data APC</h4>
-      <p>Master Server: <span>connected</span></p>
-      <p>File Check: <span>hashes match</span></p>
-      <p>Uptime<span>
+      <p>File Check:
         <script>
-          document.write(os.uptime());
+          document.write('<span>Files Good</span>');
+        </script></span>
+      <p>System: <span>
+        <script>
+          document.write(os.platform(),' / ',os.arch());
+        </script></span>
+      </p>
+      <p>Master Server: <span>
+        <script>
+          document.write(hostname);
         </script></span>
       </p>
     </section>
