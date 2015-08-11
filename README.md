@@ -1,4 +1,4 @@
-# CryptoTray
+# CryptDefend
 
 ![alt tag](http://i.imgur.com/DsI8xSi.gif)
 
@@ -9,6 +9,6 @@
 
 ## Introduction
 
-CryptoTray is a desktop app for creating and monitoring honeypot files for CryptoLocker ransomware variants. It is built with NW.js, which is an app runtime based on `Chromium` and `node.js`.
+CryptDefend is a desktop app for creating and monitoring honeypot files for CryptoLocker ransomware variants. It is built with NW.js, which is an app runtime based on `Chromium` and `node.js`.
 
 It was created for personal use, and is released for free with no restrictions or promises. Tested on Windows 7/8/10 32/64 Variants.

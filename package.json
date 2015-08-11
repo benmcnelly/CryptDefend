@@ -1,5 +1,5 @@
 {
-  "name": "CryptoTray",
+  "name": "CryptDefend",
   "main": "index.html",
   "version": "0.1.0",
   "window": {
@@ -14,17 +14,18 @@
   "dependencies": {
     "hash-files" : "1.0",
     "async" : "1.4.2",
-    "checksum" : "0.1.1"
+    "checksum" : "0.1.1",
+    "nw" : "0.12.3"
   },
   "maintainers":[ {
    "name" : "Ben McNelly",
    "email" : "benmcnelly@gmail.com",
    "web": "http://www.benmcnelly.com"
    }],
-   "repositories": [
+   "repository": [
        {
             "type": "git",
-            "url": "git@github.com:benmcnelly/CryptoTray.git"
+            "url": "git@github.com:benmcnelly/CryptDefend.git"
        }
 ]
 }
