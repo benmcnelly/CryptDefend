@@ -10,13 +10,34 @@
     var path = require('path') // do I need this
     var crypto = require('crypto');  // may use fs + this, vs hash-files
     var async = require('async'); // async library for talking back to SD server
-    var async = require('hash-files'); // simple file hash lib with no C+ needed
-    var checksum = require('checksum') //may use this instead
+//    var sha1 = require('sha1'); // wut
+    var hashfile = require('hashfile');
+    var hashmatch = "false"
+
 
     // Custom Variables
+    var branding = "Stronghold Data APS"
     var hostname = os.hostname();
-    //
-    //
+
+
+    // This works, wtf @ crypto hash
+    //var fd = fs.createReadStream('sample.txt');
+    //var hash = sha1(fd);
+
+
+    // Check Plaintext file hash
+    hashfile('sample.txt', function (err, plaintexthash) {
+        if (err) {
+            console.error();('I broke when trying to plaintexthash');
+        }
+            if (plaintexthash == "cb672bb622cb99a01668f08d35668b2631a68e9b"){
+                hashmatch = "Hashes Match"
+            }
+    });
+
+
+
+
     // // Every ten minutes run this code..
     // // ~ Check for file exists, read file size, check for variation
     //
@@ -38,8 +59,6 @@
     //
     // // ~ if decrypt exits, enable kill switch in admin GUI, verify allert level 2
     //
-
-
 
   </script>
   <style>
@@ -129,20 +148,25 @@
   </style>
   <body>
     <section>
-      <h4 onclick="gui.App.closeAllWindows();">Stronghold Data APC</h4>
-      <p>File Check:
+      <h4 onclick="gui.App.closeAllWindows();">
         <script>
-          document.write('<span>Files Good</span>');
+          document.write(branding);
+        </script>
+      </h4>
+      <p>Ping:
+        <script>
+          document.write('<span>Server Connected</span>');
         </script></span>
-      <p>System: <span>
+      <p>Identity: <span>
         <script>
-          document.write(os.platform(),' / ',os.arch());
+          document.write(os.hostname(),' + ',os.arch());
         </script></span>
       </p>
-      <p>Master Server: <span>
+      <p>Files: <span>
         <script>
-          document.write(hostname);
-        </script></span>
+          document.write(hashmatch);
+        </script>
+      </span>
       </p>
     </section>
   </body>
