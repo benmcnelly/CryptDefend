@@ -1,0 +1,29 @@
+{
+  "name": "CryptoTray",
+  "main": "index.html",
+  "version": "0.1.0",
+  "window": {
+    "show": false,
+    "frame": false,
+    "toolbar": false,
+    "icon": "app.ico"
+  },
+  "scripts": {
+    "start": "nw ."
+  },
+  "dependencies": {
+    "hash-files" : "1.0",
+    "async" : "1.4.2"
+  },
+  "maintainers":[ {
+   "name" : "Ben McNelly",
+   "email" : "benmcnelly@gmail.com",
+   "web": "http://www.benmcnelly.com"
+   }],
+   "repositories": [
+       {
+            "type": "git",
+            "url": "git@github.com:benmcnelly/CryptoTray.git"
+       }
+]
+}

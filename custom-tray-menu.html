@@ -1,0 +1,113 @@
+<html>
+  <script>
+    var gui = require('nw.gui');
+    var win = gui.Window.get();
+
+    // Good as place as any to write app logic...
+    var os = require('os')
+    // import packages
+    var fs = require('fs') // built in node.js file system junk
+    var crypto = require('crypto');  // may use fs + this, vs hash-files
+    var async=require('async'); // async library for talking back to SD server
+    var async=require('hash-files'); // simple file hash lib with no C+ needed
+
+
+  </script>
+  <style>
+
+  /* reset5 © 2011 opensource.736cs.com MIT */
+  html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,audio,canvas,details,figcaption,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,summary,time,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}body{line-height:1;}article,aside,dialog,figure,footer,header,hgroup,nav,section,blockquote{display:block;}nav ul{list-style:none;}ol{list-style:decimal;}ul{list-style:disc;}ul ul{list-style:circle;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}ins{text-decoration:underline;}del{text-decoration:line-through;}mark{background:none;}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help;}table{border-collapse:collapse;border-spacing:0;}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}input[type=submit],input[type=button],button{margin:0!important;padding:0!important;}input,select,a img{vertical-align:middle;}
+
+
+    body, html {
+      margin: 0;
+      font-size: 12px;
+      font-family: Helvetica Neue, Lucida Grande, Segoe UI, Tahoma, sans;
+      overflow: hidden !important;
+      color: #abb2bf;
+    }
+    section {
+      background: #222;
+      margin: 10px 13px 13px 13px;
+      padding: 9px;
+      border-radius: 7px;
+      border: 1px solid #A9A9A9;
+      /*overflow: hidden;*/
+      box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+    section::after, section::before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+    }
+    section::before {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #A9A9A9;
+      top: -10px;
+      left: calc(50% - 11px);
+    }
+    section::after {
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-bottom: 9px solid #fff;
+      top: -9px;
+      left: calc(10% - 110px);
+    }
+    h4 {
+      color: #555555;
+      height: 33px;
+      line-height: 33px;
+      margin: -9px -9px 10px -9px;
+      background: linear-gradient(180deg, #fff, #E9E9E9);
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      text-align: center;
+      font-size: 12px;
+      border-bottom: 1px solid #adadad;
+    }
+    /* FOR WINDOWS */
+    body.win32 section::before, body.win64 section::before {
+      border-bottom: none;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #A9A9A9;
+      top: auto;
+      bottom: -10px;
+      left: calc(50% - 11px);
+    }
+    body.win32 section::after, body.win64  section::after {
+      border-bottom: none;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-top: 9px solid #fff;
+      top: auto;
+      bottom: -9px;
+      left: calc(50% - 10px);
+    }
+    body.win32, body.win64 {{
+      section {
+        border-color: red;
+      }
+    }}
+    span
+    { color: #d18146;}
+    p
+    { color: #666; padding:3px 0 3px 0;}
+  </style>
+  <body>
+    <section>
+      <h4 onclick="gui.App.closeAllWindows();">Stronghold Data APC</h4>
+      <p>Master Server: <span>connected</span></p>
+      <p>File Check: <span>hashes match</span></p>
+      <p>Uptime<span>
+        <script>
+          document.write(os.uptime());
+        </script></span>
+      </p>
+    </section>
+  </body>
+</html>
