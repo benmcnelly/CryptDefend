@@ -1,7 +1,9 @@
 # CryptoTray
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/benmcnelly/CryptoTray?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-To build you will need: http://nwjs.io  
+
+
+* To build you will need: http://nwjs.io  
 
 ## Introduction
 
