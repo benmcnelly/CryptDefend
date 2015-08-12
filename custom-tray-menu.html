@@ -3,26 +3,28 @@
     var gui = require('nw.gui');
     var win = gui.Window.get();
 
-    // Good as place as any to write app logic...
     // import packages
     var os = require('os')
-    var fs = require('fs') // built in node.js file system junk
-    var path = require('path') // do I need this
-    var crypto = require('crypto');  // may use fs + this, vs hash-files
-    var async = require('async'); // async library for talking back to SD server
-//    var sha1 = require('sha1'); // wut
-    var hashfile = require('hashfile');
-    var hashmatch = "File Error!"
+    var fs = require('fs')
+    var path = require('path')
+    var crypto = require('crypto')
+    var async = require('async')
+    var hashfile = require('hashfile')
 
 
     // Custom Variables
     var branding = "Stronghold Data APS"
-    var hostname = os.hostname();
+    var hostname = os.hostname
 
+    // Hashed values
+    var txtHash = "cb672bb622cb99a01668f08d35668b2631a68e9b"
+    var docHash = "8769de2b7de01f599bbb98acb2259f27762ed18f"
+    var jpgHash = "d9840b9198b3de25efdd1998eea14f84877e62e7"
 
-    // This works, wtf @ crypto hash
-    //var fd = fs.createReadStream('sample.txt');
-    //var hash = sha1(fd);
+    // Flags
+    var txtHash_match = "Fail"
+    var docHash_match = "Fail"
+    var jpgHash_match = "Fail"
 
 
     // Check Plaintext file hash
@@ -30,10 +32,30 @@
         if (err) {
             console.error();('I broke when trying to plaintexthash');
         }
-            if (plaintexthash == "cb672bb622cb99a01668f08d35668b2631a68e9b"){
-                hashmatch = "Hashes Match"
-            }
+        if (plaintexthash == txtHash){
+            txtHash_match = "Check"
+        }
     });
+
+    // Check Word Doc file hash
+    hashfile('Resume.docx', function (err, docxthash) {
+        if (err) {
+            console.error();('I broke when trying to docxthash');
+        }
+        if (docxthash == docHash){
+            docHash_match = "Check"
+        }
+    });   
+
+    // Check JPG Image file hash
+    hashfile('my-kids.jpg', function (err, jpgfilehash) {
+        if (err) {
+            console.error();('I broke when trying to jpgfilehash');
+        }
+        if (jpgfilehash == jpgHash){
+            jpgHash_match = "Check"
+        }
+    });        
 
 
 
@@ -61,8 +83,8 @@
     //
 
   </script>
-  <style>
 
+  <style>
   /* reset5 © 2011 opensource.736cs.com MIT */
   html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,audio,canvas,details,figcaption,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,summary,time,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}body{line-height:1;}article,aside,dialog,figure,footer,header,hgroup,nav,section,blockquote{display:block;}nav ul{list-style:none;}ol{list-style:decimal;}ul{list-style:disc;}ul ul{list-style:circle;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}ins{text-decoration:underline;}del{text-decoration:line-through;}mark{background:none;}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help;}table{border-collapse:collapse;border-spacing:0;}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}input[type=submit],input[type=button],button{margin:0!important;padding:0!important;}input,select,a img{vertical-align:middle;}
 
@@ -164,7 +186,7 @@
       </p>
       <p>Files: <span>
         <script>
-          document.write(hashmatch);
+          document.write(txtHash_match,', ',docHash_match,', ',jpgHash_match);
         </script>
       </span>
       </p>
