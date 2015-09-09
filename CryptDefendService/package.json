@@ -1,0 +1,21 @@
+{
+  "name": "CryptDefendService",
+  "version": "1.0.0",
+  "description": "Detect and allert when Crypto software is detected",
+  "main": "cryptdfend.js",
+  "dependencies": {
+    "cron": "^1.0.9",
+    "node": "^0.0.0",
+    "io": "^0.0.9",
+    "socket.io": "^1.3.6",
+    "hashfile": "^0.0.0",
+    "socket.io-client": "^1.3.6",
+    "express": "^4.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stronghold",
+  "license": "ISC"
+}

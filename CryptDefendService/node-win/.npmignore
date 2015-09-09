@@ -1,0 +1,9 @@
+support
+test
+docs
+Gruntfile.js
+example
+docs
+.*
+*.md
+*.sock

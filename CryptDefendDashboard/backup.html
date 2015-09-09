@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Stronghold Crypt Defend Dashboard</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      .fail {color: red;}
+    </style>
+  </head>
+  <body>
+
+    <ul id="messages"></ul>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io("http://10.223.45.48:3000");
+
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+    </script>
+  </body>
+</html>
