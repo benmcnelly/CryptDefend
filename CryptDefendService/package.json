@@ -1,7 +1,7 @@
 {
   "name": "CryptDefendService",
   "version": "1.0.0",
-  "description": "Detect and allert when Crypto software is detected",
+  "description": "Detect and alert when Crypto software is detected",
   "main": "cryptdfend.js",
   "dependencies": {
     "cron": "^1.0.9",
