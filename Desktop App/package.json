@@ -15,7 +15,7 @@
     "hash-files" : "1.0",
     "async" : "1.4.2",
     "checksum" : "0.1.1",
-    "nw" : "0.12.3"
+    "nw" : "0.37.4"
   },
   "maintainers":[ {
    "name" : "Ben McNelly",
